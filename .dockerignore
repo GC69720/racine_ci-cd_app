@@ -1,9 +1,16 @@
-# --- Sécurité : ne jamais envoyer de clés privées dans le contexte de build ---
+# --- Sécurité : ne jamais envoyer de clés privées / secrets déchiffrés ---
 certs/**/tls.key
 certs/**/tls.*.dec
+certs/**/*.key
+certs/**/private/**
+# si tu avais un jour une règle qui exclut 'certs/', on ré-autorise explicitement
+!certs/
+!certs/**/
 
 # --- Autoriser les bundles CA pour que le COPY fonctionne ---
 !certs/**/ca.crt
+!certs/**/ca-bundle.crt
+!certs/**/bundle.crt
 
 # --- Node/Front ---
 frontend/node_modules
