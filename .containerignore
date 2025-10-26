@@ -1,0 +1,25 @@
+# --- Sécurité : ne jamais envoyer de clés privées dans le contexte de build ---
+certs/**/tls.key
+certs/**/tls.*.dec
+
+# --- Autoriser les bundles CA pour que le COPY fonctionne ---
+!certs/**/ca.crt
+
+# --- Node/Front ---
+frontend/node_modules
+frontend/.pnpm-store
+frontend/.yarn
+frontend/.next
+frontend/dist
+
+# --- Python/Back ---
+backend/__pycache__
+backend/.venv
+backend/.mypy_cache
+backend/.pytest_cache
+
+# --- VCS / OS ---
+.git
+.gitignore
+.DS_Store
+Thumbs.db
