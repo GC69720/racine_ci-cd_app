@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "racine_ci-cd_app",
+    "slug": "racine-ci-cd-app",
+    "scheme": "racine-ci-cd",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"]
+  }
+}

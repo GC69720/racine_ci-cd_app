@@ -1,0 +1,15 @@
+{
+  "name": "racine_ci-cd_app_mobile",
+  "private": true,
+  "license": "UNLICENSED"
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start --tunnel"
+  },
+  "dependencies": {
+    "expo": "^51.0.0",
+    "react": "^18.3.1",
+    "react-native": "0.75.1"
+  }
+}
