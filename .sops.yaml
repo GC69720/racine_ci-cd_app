@@ -1,6 +1,9 @@
-# .sops.yaml (à la racine)
-# Matche: .../certs/<env>/tls.key  avec \ ou /  et chemins absolus Windows/Unix
+# .sops.yaml
+keys:
+  - &dev1 age1ty9te3e0hee5u2vempp9x4h8cxhx0eppu84rgyvfsp0hhvmwwpzqlj2zvk
+
 creation_rules:
-  - path_regex: '.*[\\/]+certs[\\/]+[^\\/]+[\\/]+tls\.key$'
+  - path_regex: '(?i)^certs[\/\\][^\/\\]+[\/\\]tls\.key\.enc$'
     age:
-      - age1ty9te3e0hee5u2vempp9x4h8cxhx0eppu84rgyvfsp0hhvmwwpzqlj2zvk
+      - *dev1
+    encrypted_regex: '^(data|binary)$'

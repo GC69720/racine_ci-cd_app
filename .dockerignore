@@ -1,29 +1,28 @@
-# --- Sécurité : ne jamais envoyer de clés privées / secrets déchiffrés ---
+# --- Secrets / certs : ne jamais envoyer de clés privées ---
+certs/**/private/**
+certs/**/*.key
 certs/**/tls.key
 certs/**/tls.*.dec
-certs/**/*.key
-certs/**/private/**
-# si tu avais un jour une règle qui exclut 'certs/', on ré-autorise explicitement
-!certs/
-!certs/**/
 
-# --- Autoriser les bundles CA pour que le COPY fonctionne ---
+# Autoriser uniquement les bundles CA (utiles dans les Dockerfile)
 !certs/**/ca.crt
 !certs/**/ca-bundle.crt
 !certs/**/bundle.crt
+# (optionnel) garder la clé chiffrée si tu en as besoin
+!certs/**/tls.key.enc
 
-# --- Node/Front ---
-frontend/node_modules
-frontend/.pnpm-store
-frontend/.yarn
-frontend/.next
-frontend/dist
+# --- Caches Node / Front (valable dans n'importe quel sous-dossier) ---
+node_modules
+.pnpm-store
+.yarn
+.next
+dist
 
-# --- Python/Back ---
-backend/__pycache__
-backend/.venv
-backend/.mypy_cache
-backend/.pytest_cache
+# --- Caches Python / Back ---
+__pycache__
+.venv
+.mypy_cache
+.pytest_cache
 
 # --- VCS / OS ---
 .git
